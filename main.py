@@ -83,7 +83,7 @@ cIT = -1
 while(1):
 	try:
 		while(1):
-			while(cIT = ITERATIONS):
+			while(cIT == ITERATIONS):
 				cont = raw_input("Continue? ")
 				cont = cont.lower()
 				if cont == "yes":
