@@ -79,7 +79,7 @@ oldqueue = queue
 completed = []
 
 i = -1
-cIT = -1
+cIT = 0
 while(1):
 	try:
 		while(1):
