@@ -77,6 +77,16 @@ if current[0:4] != "http":
 queue = [current, ]
 oldqueue = queue
 completed = []
+fyon = raw_input("Would you like to export to a file? y/n: ")
+fyon = fyon.lower()
+if fyon == "y" or fyon == "yes":
+	fyon = 1
+file = raw_input("Filename: ")
+try:
+	f = open(file, "w")
+	f.close()
+except:
+	print("Unknown error.")
 
 i = -1
 cIT = 0
@@ -105,6 +115,18 @@ while(1):
 			queue = queue + openLink(addr, relative, current)
 			oldqueue = queue
 			print(addr)
+			if fyon == 1:
+				try:
+					f = open(file, "r")
+					fcon = f.read()
+					f.close()
+					f = open(file, "w")
+					f.write(fcon + addr + "\n")
+					f.close()
+				except:
+					f = open(file, "w")
+					f.write(addr + "\n")
+					f.close()
 			completed.append(addr)
 	except:
 		queue = oldqueue[::-1]
